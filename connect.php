@@ -3,10 +3,16 @@ $firstname = filter_input(INPUT_POST, 'firstname');
 $lastname = filter_input(INPUT_POST, 'lastname');
 $email = filter_input(INPUT_POST, 'email');
 $password = filter_input(INPUT_POST, 'password');
+$address = filter_input(INPUT_POST, 'address');
+$gender = filter_input(INPUT_POST, 'gender');
+$bdate = filter_input(INPUT_POST, 'bdate');
 if (!empty($firstname)){
 if (!empty($lastname)){
 if (!empty($email)){
 if (!empty($password)){
+if (!empty($address)){
+if (!empty($gender)){
+if (!empty($bdate)){
 $host = "localhost";
 $dbemail = "root";
 $dbpassword = "";
@@ -18,8 +24,8 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 . mysqli_connect_error());
 }
 else{
-    $sql = "INSERT INTO account (firstname, lastname, email, password)
-    values ('$firstname','$lastname','$email','$password')";
+    $sql = "INSERT INTO account (firstname, lastname, email, address, password, gender, bdate)
+    values ('$firstname','$lastname','$email', '$address', '$password', '$gender' , '$bdate')";
 if ($conn->query($sql)){
 echo "New record is inserted sucessfully";
 }
@@ -31,12 +37,27 @@ $conn->close();
 }
 }
 else{
+    echo "Birthday should not be empty";
+    die();
+    }
+    }
+else{
+echo "Gender should not be empty";
+die();
+}
+}
+else{
+echo "Address should not be empty";
+die();
+}
+}
+else{
 echo "Password should not be empty";
 die();
 }
 }
 else{
-echo "email should not be empty";
+echo "Email should not be empty";
 die();
 }
 }
