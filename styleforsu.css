@@ -23,9 +23,8 @@ h2 {
     background-image: url('Images/Background2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vmin;
+    height: 120vmin;
 }
- 
 .Sign-up {
   width: 400px;
   text-align: center;
@@ -64,6 +63,10 @@ button{
   outline: none;
   cursor: pointer;
 }
+button:hover{
+  cursor: pointer;
+  color: blue;
+}
 .signupbutton{
   background-color: #1c8adb;
 }
@@ -85,4 +88,9 @@ form span{
   width: 85%;
   border: 1px solid #999;
   margin-bottom: 10px;
+}
+
+.icon{
+  background-image: url('Images/logo3.png');
+  font-size: 500px;
 }

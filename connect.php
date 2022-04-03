@@ -28,6 +28,7 @@ else{
     values ('$firstname','$lastname','$email', '$address', '$password', '$gender' , '$bdate')";
 if ($conn->query($sql)){
 echo "New record is inserted sucessfully";
+header("Index.php");
 }
 else{
 echo "Error: ". $sql ."

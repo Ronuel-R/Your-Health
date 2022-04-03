@@ -1,0 +1,172 @@
+h1 {
+  
+  font-family: Lucida Handwriting;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+* {
+    margin: auto;
+    padding: auto;
+}
+
+.background-image {
+    background-image: url('Images/Background2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vmin;
+}
+.center{
+position: fixed;
+top: 50%;
+left: 75%;
+transform: translate(-50%, -50%);
+width: 400px;
+background-color: white;
+border-radius: 10px;
+}
+.center h1{
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid black;
+}
+.center form{
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+form .txt_field {
+  position: relative;
+  border-bottom: 2px solid;
+  margin: 30px 0;
+}
+.txt_field input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size:  16px;
+  border: none;
+  outline: none;
+  background: none;
+}
+.txt_field label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+  }
+  .txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0%;
+    width: 0;
+    height: 2px;
+    
+    background: #2691d9;
+  }
+  .txt_field input:focus ~ label,
+  .txt_field input:valid ~ label{
+    top:  -5px;
+    color:#2691d9;
+  }
+
+  .txt_field input:focus ~ span::before,
+  .txt_field input:valid ~ span::before{
+    width: 100%;
+  }
+  .Fpass {
+    margin: -5px 0 20px 5px;
+    text-align: center;
+    color: #a6a6a6;
+    cursor: pointer;
+  }
+  .Fpass:hover {
+    text-decoration: underline;
+  }
+  input[type="Sub"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2DFC29;
+    border-radius: 50px;
+    font-size: 18px;
+    color: #ffff;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type="Sub"]:hover{
+    border-color: #2691d9;
+    transition: .5s;
+  }
+.SignUp_link{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+.SignUp_link a{
+color:#2691d9;
+text-decoration: none;  
+}
+.SignUp_link a:hover {
+  text-decoration: underline;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  border-radius: 10px; 
+}
+.img-logo {
+  width:  300px;
+  height: 300px;
+  background-image:url('Images/logo2.png');
+  background-size: 100%;
+  margin-left: 250px;
+}
+.little-logo{
+  width: 200px;
+  height: 300px;
+  background-image: url('images/logo3.png');
+  background-size: 100%;
+  margin-right: 800px;
+} 
+.Sign-up {
+  width: 400px;
+  text-align: center;
+  padding: 30px;
+  margin: 3% auto 0;
+ box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+}
+
+button{
+  color:#fff;
+  width: 90%;
+  padding: 10px;
+  border-radius: 18px;
+  font-size: 15px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+button:hover{
+  cursor: pointer;
+  color: blue;
+}
+.signupbutton{
+  background-color: #1c8adb;
+}
+.error{
+  text-align: center;
+}

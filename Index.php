@@ -5,35 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor's Near You</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="StyleforLi.css">
 </head>
 <body>
-    
     <div class="background-image">
-    <h1>Your Health </h1>
-    <h2>Sign up</h2>
+   <br><br><br><br><br><br><br><br><div img class="img-logo">
+   <div class="center">
+        <h1> Log In </h1>
+        
+        <?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
 
-    <div class="Sign-up">
-    <form method="post" action="connect.php">
-    <input type="Firstname" class="input-box" placeholder="First name" name="firstname">
-    <input type="Lastname" class="input-box" placeholder="Last name" name="lastname">
-    <p><input type="email" class="input-box1" placeholder="Email/Phone #"name="email"></p>
-    <input type="Password" class="input-box1" placeholder="Password"name="password">
-    <input type="address" class="input-box1" placeholder="Province/Municipality/City/Zip Code" name="address">
-    <p><hr>
-        <span>
-            <input type="date" name="bdate" class="form-control"/>
-</hr></p>
-<input type="radio" class="gender" name="gender" value="M">Male
-<input type="radio" class="gender" name="gender" value="F">Female
-
-    <p><span><input type="checkbox"></span> I agree to the terms of services</p>
-    <p><span><input type="checkbox"></span> I agree to share my location</p>
-    <button type="submit" class="signupbutton" value="submit">Sign up</button>
-
-    </form>
-</div>
-    </div>
-
+       <!-- <h1> <div img class="little-logo"> </h1> -->
+        <form method="post" action="login.php">
+            <div class="txt_field">
+                <span></span>
+                <input type="text" name="email" required >
+                <label> Email </label>
+             </div>
+             <div class="txt_field">
+                <input type="Password" name="password"required >
+                <span></span>
+                <label>Password</label>
+             </div>
+             <div class="Fpass">Forgot Password?</div>
+             <button type="submit" class="signupbutton" value="login">Login</button>
+             <div class="SignUp_link">
+                 Create Account? <a href="signup.php"> Sign up Here! </a>
+                 </form>
+                 </div>
 </body>
 </html>

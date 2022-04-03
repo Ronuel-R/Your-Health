@@ -1,83 +1,87 @@
-
-const yearSelect = document.getElementById("year");
-const monthSelect = document.getElementById("month");
-const daySelect = document.getElementById("day");
-
-const months = ['January', 'February', 'March', 'April', 
-'May', 'June', 'July', 'August', 'September', 'October',
-'November', 'December'];
-
-
-(function populateMonths(){
-    for(let i = 0; i < months.length; i++){
-        const option = document.createElement('option');
-        option.textContent = months[i];
-        monthSelect.appendChild(option);
-    }
-    monthSelect.value = "January";
-})();
-
-let previousDay;
-
-function populateDays(month){
-
-    while(daySelect.firstChild){
-        daySelect.removeChild(daySelect.firstChild);
-    }
-    let dayNum;
-    let year = yearSelect.value;
-
-    if(month === 'January' || month === 'March' || 
-    month === 'May' || month === 'July' || month === 'August' 
-    || month === 'October' || month === 'December') {
-        dayNum = 31;
-    } else if(month === 'April' || month === 'June' 
-    || month === 'September' || month === 'November') {
-        dayNum = 30;
-    }else{
-        if(new Date(year, 1, 29).getMonth() === 1){
-            dayNum = 29;
-        }else{
-            dayNum = 28;
+$('document').ready(function(){
+    var username_state = false;
+    var email_state = false;
+    $('#username').on('blur', function(){
+     var username = $('#username').val();
+     if (username == '') {
+         username_state = false;
+         return;
+     }
+     $.ajax({
+       url: 'register.php',
+       type: 'post',
+       data: {
+           'username_check' : 1,
+           'username' : username,
+       },
+       success: function(response){
+         if (response == 'taken' ) {
+             username_state = false;
+             $('#username').parent().removeClass();
+             $('#username').parent().addClass("form_error");
+             $('#username').siblings("span").text('Sorry... Username already taken');
+         }else if (response == 'not_taken') {
+             username_state = true;
+             $('#username').parent().removeClass();
+             $('#username').parent().addClass("form_success");
+             $('#username').siblings("span").text('Username available');
+         }
+       }
+     });
+    });		
+     $('#email').on('blur', function(){
+        var email = $('#email').val();
+        if (email == '') {
+            email_state = false;
+            return;
         }
-    }
-    for(let i = 1; i <= dayNum; i++){
-        const option = document.createElement("option");
-        option.textContent = i;
-        daySelect.appendChild(option);
-    }
-    if(previousDay){
-        daySelect.value = previousDay;
-        if(daySelect.value === ""){
-            daySelect.value = previousDay - 1;
+        $.ajax({
+         url: 'register.php',
+         type: 'post',
+         data: {
+             'email_check' : 1,
+             'email' : email,
+         },
+         success: function(response){
+             if (response == 'taken' ) {
+             email_state = false;
+             $('#email').parent().removeClass();
+             $('#email').parent().addClass("form_error");
+             $('#email').siblings("span").text('Sorry... Email already taken');
+             }else if (response == 'not_taken') {
+               email_state = true;
+               $('#email').parent().removeClass();
+               $('#email').parent().addClass("form_success");
+               $('#email').siblings("span").text('Email available');
+             }
+         }
+        });
+    });
+   
+    $('#reg_btn').on('click', function(){
+        var username = $('#username').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        if (username_state == false || email_state == false) {
+         $('#error_msg').text('Fix the errors in the form first');
+       }else{
+         // proceed with form submission
+         $.ajax({
+             url: 'register.php',
+             type: 'post',
+             data: {
+                 'save' : 1,
+                 'email' : email,
+                 'username' : username,
+                 'password' : password,
+             },
+             success: function(response){
+                 alert('user saved');
+                 $('#username').val('');
+                 $('#email').val('');
+                 $('#password').val('');
+             }
+         });
         }
-        if(daySelect.value === ""){
-            daySelect.value = previousDay - 2;
-        }
-        if(daySelect.value === ""){
-            daySelect.value = previousDay - 3;
-        }
-    }
-}
-
-function populateYears(){
-    let year = new Date().getFullYear();
-    for(let i = 0; i < 101; i++){
-        const option = document.createElement("option");
-        option.textContent = year - i;
-        yearSelect.appendChild(option);
-    }
-}
-
-populateDays(monthSelect.value);
-populateYears();
-
-yearSelect.onchange = function() {
-    populateDays(monthSelect.value);
-}
-monthSelect.onchange = function() {
-    populateDays(monthSelect.value);
-}
-daySelect.onchange = function() {
-    previousDay = daySelect.value;
-}
+    });
+   });
