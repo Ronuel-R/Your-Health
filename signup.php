@@ -14,7 +14,10 @@
     <img src="Images/logo3.png" width="150" height="150" style="margin-left:30px">
     <h2>Sign up</h2>
     <div class="Sign-up">
-    <form method="post" action="connect.php">
+    <form method="post" action="signupsql.php">
+    <?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
     <input type="Firstname" class="input-box" placeholder="First name" name="firstname" required>
     <input type="Lastname" class="input-box" placeholder="Last name" name="lastname" required>
     <p><input type="email" class="input-box1" placeholder="Email/Phone #" name="email" oninvalid="('Please Enter valid Email Address');" oninput="setCustomValidity('')" required></p>
