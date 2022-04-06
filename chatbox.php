@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Chat System</title>
+	<title>Your Health</title>
+	<link rel="icon" href="Images/logo3.png"type="image">
 	<link rel="stylesheet" href="styleforchat.css" type="text/css" />
 	<script
   src="https://code.jquery.com/jquery-3.3.1.js"

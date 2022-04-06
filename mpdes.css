@@ -1,0 +1,271 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+body
+{
+    background-image: url(Images/Mainpp.jpg);
+    background-size: cover;
+    position: sticky;
+    height: 912px;
+    background-position: center;
+    box-sizing: border-box;
+    font-family: Lucida Handwriting;
+    color: white;
+    }
+    
+    .menu-bar {
+        background-color: rgb(203, 166, 106);
+        text-align: center;
+    }
+    .logogo {
+        display: flex;
+        align-items: center;
+        justify-items: first baseline;
+        padding: 5px 10%; 
+    }
+    .logo {
+        height: 100px;
+        width: 100px;
+        left: -150px;
+        position: relative;
+        cursor: pointer;
+    }
+    .logogo span{
+        position: relative;
+        font-weight: 700;
+        font-size: 15px;
+        font-family:Lucida Handwriting;
+        color: rgb(0, 0, 0); 
+        margin-left: -165px;
+    }
+    .menu-bar ul {
+        display: inline-flex;
+        list-style: none;
+        color: #ffff;
+        margin-left:  150px;
+    }
+    
+    .menu-bar ul li {
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+
+    }
+    .menu-bar ul li a {
+        text-decoration: none;
+        color: #ffff;
+    }
+    .active, menu-bar ul li:hover {
+        background: rgb(203, 166, 106);
+        border-radius: 20px;
+    }
+    .sub-menu-1 {
+        display: none;
+    }
+    .menu-bar ul li:hover .sub-menu-1 {
+        display: block;
+        position: absolute;
+        background: rgb(203, 166, 106);
+        margin-top: 15px;
+        margin-left: -15px;
+    }
+    .menu-bar ul li:hover .sub-menu-1 ul {
+    display: block;
+    margin: 10px;
+    }
+    .menu-bar ul li:hover .sub-menu-1 ul li {
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+    }
+    .menu-bar ul li:hover .sub-menu-1 ul li:last-child {
+    border-bottom: none;
+    }
+    .menu-bar ul li:hover .sub-menu-1 ul li a:hover {
+    color: black;
+    }
+    .sub-menu-2 {
+        display: none;
+    }
+    .menu-bar ul li:hover .sub-menu-2 {
+        display: block;
+        position: absolute;
+        background: rgb(203, 166, 106);
+        margin-top: 15px;
+        margin-left: -15px;
+    }
+    .menu-bar ul li:hover .sub-menu-2 ul {
+    display: block;
+    margin: 10px;
+    }
+    .menu-bar ul li:hover .sub-menu-2 ul li {
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+    }
+    .menu-bar ul li:hover .sub-menu-2 ul li:last-child {
+    border-bottom: none;
+    }
+    .menu-bar ul li:hover .sub-menu-2 ul li a:hover {
+    color: black;
+    }
+    .sub-menu-3 {
+    display: none;
+    }
+    .menu-bar ul li:hover .sub-menu-3 {
+        display: block;
+        position: absolute;
+        background: rgb(203, 166, 106);
+        margin-top: 15px;
+        margin-left: -15px;
+    }
+    .menu-bar ul li:hover .sub-menu-3 ul {
+    display: block;
+    margin: 10px;
+    }
+    .menu-bar ul li:hover .sub-menu-3 ul li {
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+    }
+    .menu-bar ul li:hover .sub-menu-3 ul li:last-child {
+    border-bottom: none;
+    }
+    .menu-bar ul li:hover .sub-menu-3 ul li a:hover {
+    color: black; 
+    }
+    .sub-menu-4 {
+        display: none;
+    }
+    .menu-bar ul li:hover .sub-menu-4 {
+        display: block;
+        position: absolute;
+        background: rgb(203, 166, 106);
+        margin-top: 15px;
+        margin-left: -15px;
+    }
+    .menu-bar ul li:hover .sub-menu-4 ul {
+    display: block;
+    margin: 10px;
+    }
+    .menu-bar ul li:hover .sub-menu-4 ul li {
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+    }
+    .menu-bar ul li:hover .sub-menu-4 ul li:last-child {
+    border-bottom: none;
+    }
+    .menu-bar ul li:hover .sub-menu-4 ul li a:hover {
+    color: black; 
+    }
+    /*.img-info {
+        height: 100px;
+        width: 100px;
+        position: relative; 
+        align-items: center; 
+    }
+
+    /* .gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 390px;
+    }
+    .gallery img {
+        width: 100%;
+        height: auto; */
+    /* .container {
+        font-family: sans-serif;
+        max-width: 10000px;
+        line-height: 2;
+       /* margin-left: 200px; 
+        overflow: visible; */
+
+.container{
+padding: 150px;
+}
+    img {
+        width: 350px;
+        height: auto;
+    }
+    .tab-container{
+        max-width: 1000px;
+        margin: 20px auto;
+        list-style: none;
+        position: relative;
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    .tab-container li {
+        float: left;
+        display: block;
+    }
+    .tab-container label {
+        display: inline-block;
+        background-color: #ecc8a8;
+        color: black;
+        padding: 5px 2px;
+        cursor: pointer;
+        margin: 0 1px 0 0;
+        transition: all .3s ease;
+    }
+    .tab-container [id^="tab"]:checked + label {
+        background-color: rgb(203, 166, 106);
+        border-radius:20px;
+        width: px;
+        text-align-last: center;
+    }
+    .tab-content {
+        background-color: #efcdaf;
+        color: rgb(0, 0, 0);
+        padding: 100px;
+        position: absolute;
+        top: 30px;
+        display: none;
+        border-radius: 0 5px 5px 5px ;
+        left: 0;
+    }
+    .tab-container [id^="tab"]:checked ~ .tab-content {
+        display: block;
+    }
+    .inner {
+        display: flex; 
+    }
+   
+    .learn{
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-bottom: 1px solid white;    
+margin-top: 10px;    
+}
+.learn:hover {
+    background-color: white;
+    color: black;
+}
+.learn span {
+    margin-left: 5px;
+}
+.learn:hover span {
+    margin-left: 15px;
+}
