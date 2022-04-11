@@ -12,14 +12,16 @@
     <div class="background-image">
    <br><br><br><br><br><br><br><br><div img class="img-logo">
    <div class="center">
+
         <h1> Log In </h1>
         
         <?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
 
-       <!-- <h1> <div img class="little-logo"> </h1> -->
+
         <form method="post" action="login.php">
+
             <div class="txt_field">
                 <span></span>
                 <input type="text" name="email" required >
@@ -35,6 +37,8 @@
              <div class="SignUp_link">
                  Create Account? <a href="signup.php"> Sign up Here! </a>
                  </form>
+
+                 
                  </div>
 </body>
 </html>

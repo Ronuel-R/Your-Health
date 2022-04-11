@@ -22,27 +22,32 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         header("Location: index.php?error=Password is required");
 	    exit();
 	}else{
-		$sql = "SELECT * FROM account WHERE email='$email' AND password='$pass'";
+		$sql = "SELECT * FROM unverified_account WHERE email='$email' AND password='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['email'] === $email && $row['password'] === $pass) {
+
+            if ($row['email'] === $email && $row['password'] === $pass && $row["usertype"] === "u") {
             	$_SESSION['email'] = $row['email'];
             	$_SESSION['firstname'] = $row['firstname'];
             	$_SESSION['lastname'] = $row['lastname'];
             	header("Location: mp.php");
 		        exit();
-            }else{
-				header("Location: index.php?error=Incorrect Username or password");
-		        exit();
-			}
+
+            }else if($row['email'] === $email && $row['password'] === $pass && $row["usertype"] === "a"){
+			    $_SESSION['email'] = $row['email'];
+            	$_SESSION['firstname'] = $row['firstname'];
+            	$_SESSION['lastname'] = $row['lastname'];
+            	header("Location: signup.php");
+	            exit();
+		}
 		}else{
 			header("Location: index.php?error=Incorrect Username or password");
-	        exit();
-		}
+			exit();
 	}
+}
 	
 }else{
 	header("Location: index.php");

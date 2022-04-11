@@ -20,7 +20,7 @@
      	<?php } ?>
     <input type="Firstname" class="input-box" placeholder="First name" name="firstname" required>
     <input type="Lastname" class="input-box" placeholder="Last name" name="lastname" required>
-    <p><input type="email" class="input-box1" placeholder="Email/Phone #" name="email" oninvalid="('Please Enter valid Email Address');" oninput="setCustomValidity('')" required></p>
+    <p><input type="email" class="input-box1" placeholder="Email/Phone #" name="email" oninvalid="this.setCustomValidity('Please Enter valid Email Address');" oninput="setCustomValidity('')" required></p>
     <input type="Password" class="input-box1" placeholder="Password"name="password" pattern=".{8,}" oninvalid="this.setCustomValidity('Must contain 8 or more characters');" oninput="setCustomValidity('')" required>
     <input type="address" class="input-box1" placeholder="Province/Municipality/City/Zip Code" name="address" required>
     <p><hr>
@@ -32,10 +32,7 @@
 
     <p><span><input type="checkbox" name="c" required="" oninvalid="this.setCustomValidity('Please check this box if you want to proceed');" oninput="setCustomValidity('')"></span> I've read and accept the Terms & Conditions</p>
     <p><span><input type="checkbox" required="" oninvalid="this.setCustomValidity('Please check this box if you want to proceed');" oninput="setCustomValidity('')"></span > I agree to share my location</p>
-
-
     <button type="submit" class="signupbutton" value="confirm" name="s">Sign up</button>
-    
     </form>
 
 </div>
