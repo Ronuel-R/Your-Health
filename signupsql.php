@@ -19,8 +19,8 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 . mysqli_connect_error());
 }
 else{
-    $sql = "INSERT INTO unverified_account (firstname, lastname, email, address, password, gender,usertype, bdate)
-    values ('$firstname','$lastname','$email', '$address', '$password', '$gender' ,'u', '$bdate')";
+    $sql = "INSERT INTO unverified_account (firstname, lastname, email, address, password, gender,usertype, bdate, status)
+    values ('$firstname','$lastname','$email', '$address', '$password', '$gender' ,'u', '$bdate' , 'pending')";
     header("Location: signup.php?error=Email already used.");
 if ($conn->query($sql)){
 header("Location: Index.php?error=Account Successfully created");

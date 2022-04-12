@@ -29,23 +29,26 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
 
-            if ($row['email'] === $email && $row['password'] === $pass && $row["usertype"] === "u") {
+            if ($row['email'] === $email && $row['password'] === $pass && $row["usertype"] === "u" && $row["status"] === "approved") {
             	$_SESSION['email'] = $row['email'];
             	$_SESSION['firstname'] = $row['firstname'];
             	$_SESSION['lastname'] = $row['lastname'];
             	header("Location: mp.php");
 		        exit();
 
-            }else if($row['email'] === $email && $row['password'] === $pass && $row["usertype"] === "a"){
+            }else if($row['email'] === $email && $row['password'] === $pass && $row["usertype"] === "a" && $row["status"] === "approved"){
 			    $_SESSION['email'] = $row['email'];
             	$_SESSION['firstname'] = $row['firstname'];
             	$_SESSION['lastname'] = $row['lastname'];
-            	header("Location: signup.php");
+            	header("Location: Admin-approval.php");
 	            exit();
+		}else{
+			header("Location: index.php?error=Waiting for Approval");
 		}
 		}else{
 			header("Location: index.php?error=Incorrect Username or password");
 			exit();
+
 	}
 }
 	
