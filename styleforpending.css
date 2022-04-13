@@ -1,0 +1,18 @@
+table{
+    width: 800px;
+    border-spacing: 2px;
+    margin-left: 350px;
+}
+
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+}
+table,th,td{
+    border: 1px solid #000
+}
+h1{
+    text-align: center;
+}

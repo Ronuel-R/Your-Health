@@ -22,7 +22,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         header("Location: index.php?error=Password is required");
 	    exit();
 	}else{
-		$sql = "SELECT * FROM unverified_account WHERE email='$email' AND password='$pass'";
+		$sql = "SELECT * FROM Accounts WHERE email='$email' AND password='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 
