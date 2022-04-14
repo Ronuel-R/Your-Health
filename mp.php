@@ -15,11 +15,11 @@
         <Span>Your Health</span>
         <ul>
                 <li class = "active"><a href="#"><i class="fa-solid fa-house-chimney-heart"></i>Home</a></li>
-                <li><a href="#">Message</a></li>
+                <li><a href="chatbox.php">Message</a></li>
                 <li><a href="#">Schedules</a>
                 <div class="sub-menu-1">
                     <ul>
-                <li><a href="#"> Set Appointments   </a></li>
+                <li><a href="setapp.php"> Set Appointments   </a></li>
                 <li><a href="#"> Your Appointments</a></li>       
                     </ul>
                 </div> </li>
@@ -28,6 +28,7 @@
                 <ul>
                 <li><a href="#"> Account Settings</a></li>
                 <li><a href="#"> View Profile</a></li>
+                <li><a href="logout.php"> Logout</a></li>
                 </ul>
                 </div></li>
                 <li><a href="#">About</a>

@@ -40,7 +40,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 			    $_SESSION['email'] = $row['email'];
             	$_SESSION['firstname'] = $row['firstname'];
             	$_SESSION['lastname'] = $row['lastname'];
-            	header("Location: Admin-approval.php");
+            	header("Location: Admin-app-approve.php");
 	            exit();
 		}else{
 			header("Location: index.php?error=Waiting for Approval");
