@@ -1,5 +1,5 @@
 <?php
-
+session_start(); 
 include("../configforchat.php");
 
 if( isset($_REQUEST['action']) ){
@@ -27,8 +27,8 @@ if( isset($_REQUEST['action']) ){
 
 		case "getChat":
 
-
-			$query = $db->prepare("SELECT * from chat");
+            $email = $_SESSION['email'];
+			$query = $db->prepare("SELECT * from chat WHERE email = '$email'");
 			$query->execute();
 
 			$rs = $query->fetchAll(PDO::FETCH_OBJ);
