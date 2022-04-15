@@ -1,3 +1,9 @@
+<?php
+session_start(); 
+include "db_connect.php";
+$email = $_SESSION['email'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +19,34 @@
 <body>
 	
 	<div class="centeralised">
+
+	<table id = "users">
 	
+    <tr>
+    <th>Sender</th>
+    <th><?php echo $email?></th>
+</tr>
+<form action="" method="POST">
+<tr>
+    <th>Receiver</th>
+    <th><select id="recipient" name= "recipient"  style="padding: 5px 10px  ">
+	 <option> Select recipient </option> 
+<?php
+$query = "SELECT * from accounts WHERE status = 'approved' && usertype = 'u' order by date ASC";
+$result = mysqli_query($conn, $query);
+while($row = mysqli_fetch_array($result)){
+?>
+            <option> <?php echo $row['email'];?> </option>
+			<?php }?>
+</select>
+</th>
+</tr>
+</table>
+
 	<div class="chathistory"></div>
 	<div class="chatbox">
 		
-		<form action="" method="POST">
+		
 			
 			<textarea class="txtarea" id="message" name="message"></textarea>
 		</form>
@@ -30,13 +59,14 @@
 		});
 		
 		$('#message').keyup(function(e){
-			var message = $(this).val();
+			var message = $(this).val();	
 			if( e.which == 13 ){
-				$.post('handlers/ajax.php?action=SendMessage&message='+message, function(response){
+				$.post('handlers/ajax.php?action=SendMessage&message='+ message,'&recipient='+recipient, function(response){
 					
 					loadChat();
 					$('#message').val('');
-				});
+				}
+				);
 			}
 		});
 		function loadChat()

@@ -62,7 +62,7 @@ body
         border-radius: 20px;
     }
 table{
-    width: 800px;
+    width: 1000px;
     border-spacing: 2px;
 }
 
@@ -82,12 +82,12 @@ h1{
 }
 
         .tab-container{
-            max-width: 800px;
+            max-width: 1000px;
             margin: 20px auto;
             list-style: none;
             position: relative;
             background-color: #e9caae;
         }
-h1{
-    color:#000;
-}
+        h1{
+            color:#000;
+        }

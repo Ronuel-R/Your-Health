@@ -16,6 +16,9 @@
 
 <div class = "container"> 
 <div class="main">
+<?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
     <br> <br> 
 <form method="post" action="setappsql.php">
 

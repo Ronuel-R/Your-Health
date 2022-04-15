@@ -173,29 +173,6 @@ body
     .menu-bar ul li:hover .sub-menu-4 ul li a:hover {
     color: black; 
     }
-    /*.img-info {
-        height: 100px;
-        width: 100px;
-        position: relative; 
-        align-items: center; 
-    }
-
-    /* .gallery {
-        margin: 5px;
-        border: 1px solid #ccc;
-        float: left;
-        width: 390px;
-    }
-    .gallery img {
-        width: 100%;
-        height: auto; */
-    /* .container {
-        font-family: sans-serif;
-        max-width: 10000px;
-        line-height: 2;
-       /* margin-left: 200px; 
-        overflow: visible; */
-
 .container{
 padding: 150px;
 }

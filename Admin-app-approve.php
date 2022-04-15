@@ -7,12 +7,28 @@ include "db_connect.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleforpending.css">
+    <link rel="stylesheet" href="styleforpendingapp.css">
     <link rel="icon" href="Images/logo3.png"type="image">
     <title>User Pending Approval</title>
 </head>
 <body>
     <div class="center">
+    <div class="center">
+    <body>
+        <div class = "menu-bar">
+        <div class ="logogo">
+        <img class ="logo" src="Images/logo3.png"> 
+        <Span>Your Health</span>
+        <ul>
+                <li class = "active"><a href="admin-dashboard.php"><i class="fa-solid fa-house-chimney-heart"></i>Home</a></li>
+                <li><a href="Admin-approval.php">Pending Users</a></li>
+                <li><a href="Admin-app-approve.php">Pending Appointments</a></li>
+                <li><a href="Logout.php">Logout</a></li>
+            </ul>
+            </div>
+            </div>
+            <div class = "container">
+            <ul class="tab-container">
 <h1>Appointment Approval</h1>
 
 <table id = "users">
@@ -49,6 +65,8 @@ while($row = mysqli_fetch_array($result)){
 ?>
 </table>
 </div>
+</ul>
+</div>
 <?php
 if(isset($_POST['approve'])){
     $date = $_POST['date'];
@@ -56,8 +74,8 @@ if(isset($_POST['approve'])){
     $result = mysqli_query($conn,$select);
 
     echo '<script type = "text/javascript">';
-    echo 'alert("User Approved!");';
-    echo 'window.location.href = "Admin-approval.php"';
+    echo 'alert("Appointment Approved!");';
+    echo 'window.location.href = "Admin-app-approve.php"';
     echo '</script>';
 }
 if(isset($_POST['deny'])){
@@ -66,8 +84,8 @@ if(isset($_POST['deny'])){
     $result = mysqli_query($conn, $select);
 
     echo '<script type = "text/javascript">';
-    echo 'alert("User Denied!");';
-    echo 'window.location.href = "Admin-approval.php"';
+    echo 'alert("Appointment Denied!");';
+    echo 'window.location.href = "Admin-app-approve.php"';
     echo '</script>';
 }?>
 </body>

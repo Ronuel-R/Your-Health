@@ -61,33 +61,4 @@ body
         background: rgb(203, 166, 106);
         border-radius: 20px;
     }
-table{
-    width: 800px;
-    border-spacing: 2px;
-}
-
-th{
-    text-align: center;
-    color: #000;
-}
-td{
-    text-align: center;
-    color: #000;
-}
-table,th,td{
-    border: 1px solid #000
-}
-h1{
-    text-align: center;
-}
-
-        .tab-container{
-            max-width: 800px;
-            margin: 20px auto;
-            list-style: none;
-            position: relative;
-            background-color: #e9caae;
-        }
-h1{
-    color:#000;
-}
+    

@@ -13,9 +13,9 @@ if( isset($_REQUEST['action']) ){
 
 			session_start();
 
-			$query = $db->prepare("INSERT INTO chat SET email=?, message=?");
+			$query = $db->prepare("INSERT INTO chat SET email=?, recipient=? ,message=?");
 
-			$query->execute([$_SESSION['email'], $_REQUEST['message']]);
+			$query->execute([$_SESSION['email'],$_REQUEST['recipient'],$_REQUEST['message']]);
 
 			echo 1;
 
@@ -29,6 +29,22 @@ if( isset($_REQUEST['action']) ){
 
             $email = $_SESSION['email'];
 			$query = $db->prepare("SELECT * from chat WHERE email = '$email'");
+			$query->execute();
+
+			$rs = $query->fetchAll(PDO::FETCH_OBJ);
+			
+
+			$chat = '';
+			foreach( $rs as $r ){
+
+				$chat .=  '<div class="siglemessage"><strong>'.$r->email.' says:  </strong>'.$r->message.'</div>';
+
+			}
+
+			echo $chat;
+
+			$email = $_SESSION['email'];
+			$query = $db->prepare("SELECT * from chat WHERE recipient = '$email'" );
 			$query->execute();
 
 			$rs = $query->fetchAll(PDO::FETCH_OBJ);

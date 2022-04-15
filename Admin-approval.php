@@ -13,6 +13,21 @@ include "db_connect.php";
 </head>
 <body>
     <div class="center">
+    <body>
+        <div class = "menu-bar">
+        <div class ="logogo">
+        <img class ="logo" src="Images/logo3.png"> 
+        <Span>Your Health</span>
+        <ul>
+                <li class = "active"><a href="admin-dashboard.php"><i class="fa-solid fa-house-chimney-heart"></i>Home</a></li>
+                <li><a href="Admin-approval.php">Pending Users</a></li>
+                <li><a href="Admin-app-approve.php">Pending Appointments</a></li>
+                <li><a href="Logout.php">Logout</a></li>
+            </ul>
+            </div>
+            </div>
+            <div class = "container">
+            <ul class="tab-container">
 <h1>User Register</h1>
 
 <table id = "users">
@@ -46,6 +61,8 @@ while($row = mysqli_fetch_array($result)){
 }
 ?>
 </table>
+</div>
+</ul>
 </div>
 <?php
 if(isset($_POST['approve'])){

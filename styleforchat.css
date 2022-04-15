@@ -31,3 +31,11 @@
 	padding:5px;
 	border-bottom:1px solid #b3b3b3;
 }
+table,th,td{
+    border: 1px solid #000
+}
+table{
+    width: 600px;
+    border-spacing: 2px;
+	margin-left: 190px;
+}
