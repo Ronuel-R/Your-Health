@@ -3,6 +3,10 @@
     margin:0;
     box-sizing: border-box;
 }
+h2,h3{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
 body
 {
     background-image: url(Images/Mainpp.jpg);
@@ -61,4 +65,25 @@ body
         background: rgb(203, 166, 106);
         border-radius: 20px;
     }
-    
+.container{
+    background-color:white;
+}
+.container1{
+    background-color:white;
+    margin-left: 750px;
+}
+.chartbox{
+    width: 700px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(255 ,26 , 104,1);
+    background: white;
+}
+.chartcard{
+    width: 100vw;
+    height: calc(100vh- 100px);
+    background: rgba(255,25,104,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

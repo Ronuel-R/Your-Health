@@ -21,14 +21,16 @@ if (mysqli_connect_error()){
     else{
         $sql = "INSERT INTO Appointment (Department,email, Doctor, date, Message, status)
         values ('$depselect','$email','$Doctorselect','$dateselect', '$message','pending')";
-        echo '<script type = "text/javascript">';
-        echo 'alert("Please do not use any special character");';
-        echo 'window.location.href = "setapp.php"';
-        echo '</script>';
+        
 if ($conn->query($sql)){
     echo '<script type = "text/javascript">';
     echo 'alert("Wait for Admin Approval");';
     echo 'window.location.href = "mp.php"';
+    echo '</script>';
+}else {
+    echo '<script type = "text/javascript">';
+    echo 'alert("Please do not use any special character");';
+    echo 'window.location.href = "setapp.php"';
     echo '</script>';
 }
 
