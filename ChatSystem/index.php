@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include('header.php');
+
 ?>
 <title>Chat</title>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
