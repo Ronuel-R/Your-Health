@@ -32,26 +32,26 @@ include "db_connect.php";
 
 <table id = "users">
     <tr>
-    <th>Date Created</th>
+    <th>userid</th>
     <th>Email Address</th>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Action</th>
 </tr>
 <?php
-$query = "SELECT * from Accounts WHERE status = 'pending'order by date ASC";
+$query = "SELECT * from Accounts WHERE status = 'pending'order by userid ASC";
 $result = mysqli_query($conn, $query);
 while($row = mysqli_fetch_array($result)){
 ?>
 <tr>
     
-    <td><?php echo $row['date'];?></td>
+    <td><?php echo $row['userid'];?></td>
     <td><?php echo $row['email'];?></td>
     <td><?php echo $row['firstname'];?></td>
     <td><?php echo $row['lastname'];?></td>
     <td>
         <form action = Admin-approval.php method = "POST">
-            <input type = "hidden" name="date" value= "<?php echo $row['date'];?>"/>
+            <input type = "hidden" name="userid" value= "<?php echo $row['userid'];?>"/>
             <input type = "submit" name="approve" value= "Approve"/>
             <input type = "submit" name="deny" value= "Deny"/>
 </form>
@@ -66,18 +66,22 @@ while($row = mysqli_fetch_array($result)){
 </div>
 <?php
 if(isset($_POST['approve'])){
-    $date = $_POST['date'];
-    $select = "UPDATE Accounts SET status= 'approved' WHERE date='$date'";
+    $userid = $_POST['userid'];
+    $select = "UPDATE Accounts SET status= 'approved' WHERE userid='$userid'";
     $result = mysqli_query($conn,$select);
+    $query = "INSERT INTO chat_users (userid, email, password)
+    SELECT userid, email, password FROM yourhealth.accounts WHERE userid='$userid';";
+    $result1 = mysqli_query($conn1,$query);
 
     echo '<script type = "text/javascript">';
     echo 'alert("User Approved!");';
     echo 'window.location.href = "Admin-approval.php"';
     echo '</script>';
+    
 }
 if(isset($_POST['deny'])){
-    $date = $_POST['date'];
-    $select = "DELETE FROM Accounts WHERE date= '$date'";
+    $userid = $_POST['userid'];
+    $select = "DELETE FROM Accounts WHERE userid= '$userid'";
     $result = mysqli_query($conn, $select);
 
     echo '<script type = "text/javascript">';

@@ -23,6 +23,7 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 else{
     $sql = "INSERT INTO Accounts (firstname, lastname, email, address, password, gender,usertype, bdate, status)
     values ('$firstname1','$lastname1','$email', '$address', '$password', '$gender' ,'u', '$bdate' , 'pending')";
+    
     header("Location: signup.php?error=Email already used.");
 if ($conn->query($sql)){
 header("Location: Index.php?error=Account Successfully created");

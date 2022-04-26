@@ -15,7 +15,7 @@
         <Span>Your Health</span>
         <ul>
                 <li class = "active"><a href="#"><i class="fa-solid fa-house-chimney-heart"></i>Home</a></li>
-                <li><a href="chatbox.php">Message</a></li>
+                <li><a href="ChatSystem/index.php">Message</a></li>
                 <li><a href="#">Schedules</a>
                 <div class="sub-menu-1">
                     <ul>
