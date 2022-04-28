@@ -12,9 +12,14 @@ include('header.php');
     width: 400px;
     margin: 30px auto;	
 }
+.container{
+	background: white;
+}
 </style>
 <?php include('container.php');?>
-<div class="container">		
+<br></br>
+<div class="container">	
+		
 	<h1>Chat System</h1>		
 	<br>		
 	<?php if(isset($_SESSION['userid']) && $_SESSION['userid']) { ?> 	
@@ -40,9 +45,6 @@ include('header.php');
 								echo '<li id="status-busy"><span class="status-circle"></span> <p>Busy</p></li>';
 								echo '<li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>';
 							echo '</ul>';
-							echo '</div>';
-							echo '<div id="expanded">';			
-							echo '<a href="logout.php">Logout</a>';
 							echo '</div>';
 					}
 					echo '</div>';

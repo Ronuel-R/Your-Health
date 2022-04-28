@@ -69,11 +69,12 @@ if(isset($_POST['approve'])){
     $userid = $_POST['userid'];
     $select = "UPDATE Accounts SET status= 'approved' WHERE userid='$userid'";
     $result = mysqli_query($conn,$select);
-    $query = "INSERT INTO chat_users (userid, email, password)
-    SELECT userid, email, password FROM yourhealth.accounts WHERE userid='$userid';";
+    $query = "INSERT INTO chat_users (userid, email, password, avatar)
+    SELECT userid, email, password, avatar FROM yourhealth.accounts WHERE userid='$userid'
+    ON DUPLICATE KEY UPDATE userid = '$userid';";
     $result1 = mysqli_query($conn1,$query);
 
-    echo '<script type = "text/javascript">';
+    echo '<script type = "text/javascript">'; 
     echo 'alert("User Approved!");';
     echo 'window.location.href = "Admin-approval.php"';
     echo '</script>';

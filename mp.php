@@ -30,7 +30,7 @@ session_start();
                 <div class="sub-menu-2">
                 <ul>
                 <li><a href="#"> Account Settings</a></li>
-                <li><a href="#"> View Profile</a></li>
+                <li><a href="viewprofile.php"> View Profile</a></li>
                 <li><a href="logout.php"> Logout</a></li>
                 </ul>
                 </div></li>

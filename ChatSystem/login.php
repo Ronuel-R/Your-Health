@@ -19,8 +19,15 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 }
 
 ?>
+<style>
+.container{
+	background: white;
+}
+</style>
+
 <title>Your Health</title>
 <?php include('container.php');?>
+<br></br><br></br>
 <div class="container">		
 	<h2>Chat: Login</h1>		
 	<div class="row">

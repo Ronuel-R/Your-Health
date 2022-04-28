@@ -1,7 +1,21 @@
 <?php 
 session_start(); 
 include "db_connect.php";
-
+$loginError = '';
+if (!empty($_POST['email']) && !empty($_POST['password'])) {
+	include ('ChatSystem/Chat.php');
+	$chat = new Chat();
+	$user = $chat->loginUsers($_POST['email'], md5($_POST['password']));	
+	if(!empty($user)) {
+		$_SESSION['email'] = $user[0]['email'];
+		$_SESSION['userid'] = $user[0]['userid'];
+		$chat->updateUserOnline($user[0]['userid'], 1);
+		$lastInsertId = $chat->insertUserLoginDetails($user[0]['userid']);
+		$_SESSION['login_details_id'] = $lastInsertId;
+	} else {
+		$loginError = "Invalid email or password!";
+	}
+}
 if (isset($_POST['email']) && isset($_POST['password'])) {
 
 	function validate($data){
@@ -33,6 +47,11 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             	$_SESSION['email'] = $row['email'];
             	$_SESSION['firstname'] = $row['firstname'];
             	$_SESSION['lastname'] = $row['lastname'];
+				$_SESSION['bdate'] = $row['bdate'];
+				$_SESSION['gender'] = $row['gender'];
+				$_SESSION['address'] = $row['address'];
+				$_SESSION['phonenum'] = $row['phonenum'];
+				$_SESSION['avatar'] = $row['avatar'];
             	header("Location: mp.php");
 		        exit();
 
@@ -55,4 +74,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 }else{
 	header("Location: index.php");
 	exit();
+
+
+
 }
