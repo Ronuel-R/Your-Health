@@ -5,6 +5,7 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
     background-size: cover;
+    font-family: lucida Handwriting;
 }
 .container {
     width: 500px;
@@ -36,7 +37,6 @@ body {
     box-sizing: border-box;
     font-size: 15px;
     color: #333;
-    margin-bottom: 40px;
 }
 .main button {
     padding-left: 0;

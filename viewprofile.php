@@ -29,7 +29,10 @@ $lastname =$_SESSION["lastname"];
 />
 <?php
 include('header.php');?>
+
+
 <link rel="stylesheet" href="styleforvp.css">
+
 </head>
 <body class="bg-light">
   <div class="container">

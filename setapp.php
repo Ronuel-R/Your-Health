@@ -60,7 +60,7 @@ while($row = mysqli_fetch_array($result)){
 <form> 
         <input type="datetime-local" name="dateselect">
     </form>
-    
+    <br></br><br>
  
         <textarea type ="message" name="message" placeholder="Your Message/Concern" cols="45" rows="10"></textarea> 
 

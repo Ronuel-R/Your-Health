@@ -3,15 +3,7 @@
     margin:0;
     box-sizing: border-box;
 }
-body
-{
-    background-size: cover;
-    position: sticky;
-    background-position: center;
-    box-sizing: border-box;
-    font-family: Lucida Handwriting;
-    color: rgb(7, 4, 4);
-    }
+
     .menu-bar {
         background-color: rgb(203, 166, 106);
         text-align: center;
@@ -183,6 +175,7 @@ body
         float: left;
         width: 80%;
         background: #f1f1f1;
+        font-family: lucida Handwriting;
       }
       
 

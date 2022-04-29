@@ -34,7 +34,6 @@ include('header.php');
 						$currentSession = $user['current_session'];
 						echo '<img id="profile-img" src="userpics/'.$user['avatar'].'" class="online" alt="" />';
 						echo  '<p>'.$user['email'].'</p>';
-							echo '<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>';
 							echo '<div id="status-options">';
 							echo '<ul>';
 								echo '<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>';
@@ -52,6 +51,7 @@ include('header.php');
 						<input type="text" placeholder="Search contacts..." />					
 					</div>
 					<div id="contacts">	
+						<br></br>
 					<?php
 					echo '<ul>';
 					$chatUsers = $chat->chatUsers($_SESSION['userid']);

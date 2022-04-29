@@ -10,19 +10,7 @@ $sdata=$_POST['searchdata'];
   ?>
     <?php
 }?>
-<?php
 
-$sql=mysqli_query($conn,"select * from Accounts where firstname like '%$sdata%'|| lastname like '%$sdata%' limit 1");
-$num=mysqli_num_rows($sql);
-if($num>0){
-$cnt=1;
-while($row=mysqli_fetch_array($sql))
-{
-?>
-<?php
-$firstname =$row["firstname"];
-$lastname =$row["lastname"];
-?>
 <!DOCTYPE html>
 <html>
  <head>
@@ -45,13 +33,27 @@ $lastname =$row["lastname"];
 />
 <link rel="stylesheet" href="styleforvp.css">
 </head>
-<body class="bg-light">
 <?php include('header.php');?>
+<body class="bg-light">
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-md-10 mt-5 pt-5">
-      <h4 align="center">Result for "<?php echo $sdata;?>" </h4>
-        <div class="row z-depth-3">
+      <h4 align="center">Result for "<?php echo $sdata;?>" </h4>  
+      <?php
+$sql=mysqli_query($conn,"select * from Accounts where firstname like '%$sdata%'|| lastname like '%$sdata%'");
+while($row=mysqli_fetch_assoc($sql))
+{
+?>
+<?php
+$firstname =$row["firstname"];
+$lastname =$row["lastname"];
+?> 
+      <div>
+        <br>
+<div class="row z-depth-3">
+
+
+
           <div class="col-sm-4 bg-info rounded-left">
             <div class="card-block text-center text-white">
               <br></br>
@@ -87,16 +89,12 @@ $lastname =$row["lastname"];
   <p class="font-weight-bold">Address:</p>
   <h6 class="text-muted"><?php echo $row['address']?></h6>
 </div>
-<div class="col-sm-6">
-<?php if (isset($row['specialty'])) { ?>
-  <p class="font-weight-bold">Specialty:</p>
-  <h6 class="text-muted"><?php echo $row['specialty']?></h6>
-  <?php } ?>
+</div>
 </div>
 </div>
 <?php
-}}?>
-
+}?>
 
 </body>
+
 </html>

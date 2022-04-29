@@ -31,14 +31,7 @@ body
         position: relative;
         cursor: pointer;
     }
-    .logogo span{
-        position: relative;
-        font-weight: 700;
-        font-size: 15px;
-        font-family:Lucida Handwriting;
-        color: rgb(0, 0, 0); 
-        margin-left: -165px;
-    }
+ 
     .menu-bar ul {
         display: inline-flex;
         list-style: none;
