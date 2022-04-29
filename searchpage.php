@@ -1,18 +1,34 @@
-
 <?php
 session_start();
 include "db_connect.php";
 
-$firstname =$_SESSION["firstname"];
-$lastname =$_SESSION["lastname"];
 ?>
+<?php
+if(isset($_POST['search']))
+{ 
+$sdata=$_POST['searchdata'];
+  ?>
+    <?php
+}?>
+<?php
 
+$sql=mysqli_query($conn,"select * from Accounts where firstname like '%$sdata%'|| lastname like '%$sdata%' limit 1");
+$num=mysqli_num_rows($sql);
+if($num>0){
+$cnt=1;
+while($row=mysqli_fetch_array($sql))
+{
+?>
+<?php
+$firstname =$row["firstname"];
+$lastname =$row["lastname"];
+?>
 <!DOCTYPE html>
 <html>
  <head>
       <title>User Profile</title>
       <link rel="shortcut icon" type="image/png" href="logo3.png">
-      
+
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
   rel="stylesheet"
@@ -27,24 +43,24 @@ $lastname =$_SESSION["lastname"];
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
   rel="stylesheet"
 />
-<?php
-include('header.php');?>
 <link rel="stylesheet" href="styleforvp.css">
 </head>
 <body class="bg-light">
+<?php include('header.php');?>
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-md-10 mt-5 pt-5">
+      <h4 align="center">Result for "<?php echo $sdata;?>" </h4>
         <div class="row z-depth-3">
           <div class="col-sm-4 bg-info rounded-left">
             <div class="card-block text-center text-white">
               <br></br>
-           <?php echo '<img id="profile-img" src="ChatSystem/userpics/'.$_SESSION['avatar'].'" />';?>
+           <?php echo '<img id="profile-img" src="ChatSystem/userpics/'.$row['avatar'].'" />';?>
               <h2 class="font-Weiht-bold mt-4"><?php echo $firstname ,' ',$lastname?></h2>
               <p>
-              <?php echo $_SESSION["gender"]?>
+              <?php echo $row["gender"]?>
             </p>
-              <i class="far fa-edit fa-2x mb-4"></i>
+            
 </div>
 </div>
 <div class="col-sm-8 bg-white rounded-right">
@@ -53,11 +69,11 @@ include('header.php');?>
   <div class="row">
     <div class="col-sm-6">
       <p class="font-weight-bold">Email:</p>
-      <h6 class="text-muted"><?php echo $_SESSION['email']?></h6>
+      <h6 class="text-muted"><?php echo $row['email']?></h6>
 </div>
 <div class="col-sm-6">
       <p class="font-weight-bold">Phone Number:</p>
-      <h6 class="text-muted"><?php echo $_SESSION['phonenum']?></h6>
+      <h6 class="text-muted"><?php echo $row['phonenum']?></h6>
 </div>
 </div>
 <h4 class="mt-3">Others</h4>
@@ -65,20 +81,21 @@ include('header.php');?>
 <div class="row">
   <div class="col-sm-6">
     <p class="font-weight-bold">Birthday:</p>
-    <h6 class="text-muted"><?php echo $_SESSION['bdate']?></h6>
+    <h6 class="text-muted"><?php echo $row['bdate']?></h6>
 </div>
 <div class="col-sm-6">
   <p class="font-weight-bold">Address:</p>
-  <h6 class="text-muted"><?php echo $_SESSION['address']?></h6>
+  <h6 class="text-muted"><?php echo $row['address']?></h6>
 </div>
 <div class="col-sm-6">
-<?php if (isset($_SESSION['specialty'])) { ?>
+<?php if (isset($row['specialty'])) { ?>
   <p class="font-weight-bold">Specialty:</p>
-  <h6 class="text-muted"><?php echo $_SESSION['specialty']?></h6>
+  <h6 class="text-muted"><?php echo $row['specialty']?></h6>
   <?php } ?>
 </div>
 </div>
-
+<?php
+}}?>
 
 
 </body>

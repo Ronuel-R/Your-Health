@@ -1,3 +1,8 @@
+<?php
+include "db_connect.php";
+
+?>
+<?php include('header.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,49 +16,8 @@
     
 </head>
 <body>
-<div class = "menu-bar">
-        <div class ="logogo">
-        <img class ="logo" src="Images/logo3.png"> 
-        <Span>Your Health</span>
-        <ul>
-                <li class = "active"><a href="mp.php"><i class="fa-solid fa-house-chimney-heart"></i>Home</a></li>
-                <li><a href="ChatSystem/index.php">Message</a></li>
-                <li><a href="#">Schedules</a>
-                <div class="sub-menu-1">
-                    <ul>
-                <li><a href="setapp.php"> Set Appointments   </a></li>
-                <li><a href="#"> Your Appointments</a></li>       
-                    </ul>
-                </div> </li>
-                <li><a href="#">Profile</a>
-                <div class="sub-menu-2">
-                <ul>
-                <li><a href="#"> Account Settings</a></li>
-                <li><a href="viewprofile.php"> View Profile</a></li>
-                <li><a href=logout.php"> Logout</a></li>
-                </ul>
-                </div></li>
-                <li><a href="#">About</a>
-                <div class="sub-menu-3">
-                <ul>
-                <li><a href="#"> Mission</a></li>
-                <li><a href="#"> Vission</a></li>
-                <li><a href="#"> Team</a></li>
-                </ul>
-                </div>
-            </li>
-                <li><a href="#">Help</a>
-                <div class="sub-menu-4">
-                <ul>
-                <li><a href="#"> Contact US</a></li>
-                <li><a href="#"> Settings</a></li>
-                <li><a href="#"> Report</a></li>
-                </ul>
-                </div>
-            </li>
-            </ul>
-            </div>
-            </div>
+
+
 <div class = "header">
         <h1> Book Appointment Now!</h1> 
 </div>
@@ -66,25 +30,31 @@
      	<?php } ?>
     <br> <br> 
 <form method="post" action="setappsql.php">
-
     <div class = "department-box">
-    <select id="ddselect" name="depselect"  style="padding: 5px 10px  ">
+   
+    <select id="ddselect" name="depselect"  style="padding: 5px 10px">
             <option> Select Department </option> 
-            <option value="Physicians"> Physicians </option>
-            <option value="Dentist"> Dentist </option>
-            <option value="Psychiatrists"> Psychiatrists </option>
-            <option value="bstetricians and Gynecologists"> Obstetricians and Gynecologists </option>
-            <option value="Neurologists"> Neurologists </option>
-            <option value="Radiologists"> Radiologists</option>
-            <option value="Anesthesiologists"> Anesthesiologists</option>
-            <option value="Pediatricians"> Pediatricians </option>
+            <option> Physicians </option>
+            <option> Dentist </option>
+            <option> Psychiatrists </option>
+            <option> Obstetricians and Gynecologists </option>
+            <option> Neurologists </option>
+            <option> Radiologists</option>
+            <option> Anesthesiologists</option>
+            <option> Pediatricians </option>
 </select>
-
 <select id="ddselectdoctoravailable" name="Doctorselect" style="padding: 5px 10px">
-        <option> --Doctors--</option>
-        <option> Brian </option>
-        <option> Ronuel </option>
-        <option> Marvie </option>
+<option> --Doctors--</option>
+<?php
+$query = "SELECT * from Accounts WHERE status = 'approved' order by userid ASC";
+$result = mysqli_query($conn, $query);
+while($row = mysqli_fetch_array($result)){
+?>
+    <option><?php echo $row['firstname'] ,' ', $row['lastname'];?></option>
+<?php
+}
+?>
+
 </select>
 <br> <br> <br> 
 <form> 

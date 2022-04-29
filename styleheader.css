@@ -5,11 +5,13 @@
 }
 body
 {
-
+    background-size: cover;
+    position: sticky;
+    background-position: center;
+    box-sizing: border-box;
     font-family: Lucida Handwriting;
     color: rgb(7, 4, 4);
     }
-    
     .menu-bar {
         background-color: rgb(203, 166, 106);
         text-align: center;
@@ -168,3 +170,42 @@ body
     .menu-bar ul li:hover .sub-menu-4 ul li a:hover {
     color: black; 
     }
+    * {
+        box-sizing: border-box;
+      }
+      
+      
+      form.example input[type=text] {
+     
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+      }
+      
+
+      form.example button {
+    
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+      }
+      
+      form.example button:hover {
+        background: #0b7dda;
+      }
+      
+
+      form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+      }

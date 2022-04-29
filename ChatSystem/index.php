@@ -12,15 +12,12 @@ include('header.php');
     width: 400px;
     margin: 30px auto;	
 }
-.container{
-	background: white;
-}
 </style>
 <?php include('container.php');?>
 <br></br>
 <div class="container">	
 		
-	<h1>Chat System</h1>		
+	<h1 style="text-align: center;">Chat System</h1>		
 	<br>		
 	<?php if(isset($_SESSION['userid']) && $_SESSION['userid']) { ?> 	
 		<div class="chat">	

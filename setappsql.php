@@ -1,6 +1,5 @@
 <?php
-session_start(); 
-include "db_connect.php";
+session_start();
 
 $depselect = filter_input(INPUT_POST, 'depselect');
 $Doctorselect = filter_input(INPUT_POST, 'Doctorselect');
@@ -11,6 +10,7 @@ $host = "localhost";
 $dbemail = "root";
 $dbpassword = "";
 $dbname = "yourhealth";
+
 
 $conn = new mysqli ($host, $dbemail, $dbpassword, $dbname);
 
